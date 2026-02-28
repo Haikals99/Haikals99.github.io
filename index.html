@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protofilo Portfolio</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+
+/* ===============================
+GLOBAL STYLE
+=================================*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.yellow {
+    color: #ffd400;
+}
+
+.bg-yellow {
+    background: #ffd400;
+}
+
+.btn-yellow {
+    background: #ffd400;
+    color: #000;
+    font-weight: bold;
+    padding: 12px 30px;
+    border: none;
+}
+
+.btn-yellow:hover {
+    background: #000;
+    color: #ffd400;
+    transition: 0.3s;
+}
+
+/* ===============================
+HERO SECTION
+=================================*/
+
+.hero {
+    min-height: 100vh;
+}
+
+.hero-left {
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero-left h1 {
+    font-size: 70px;
+    font-weight: 900;
+}
+
+.hero-left h5 {
+    letter-spacing: 3px;
+}
+
+.hero-right {
+    background: url('https://images.unsplash.com/photo-1603415526960-f8f6bca3c4c3?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+}
+
+/* decorative dots */
+.dots {
+    position: absolute;
+    top: 150px;
+    left: 40px;
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(#555 1px, transparent 1px);
+    background-size: 10px 10px;
+}
+
+/* ===============================
+NAVBAR
+=================================*/
+
+.custom-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px 40px;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+    background: rgba(0,0,0,0.7);
+}
+
+.custom-nav a {
+    color: #fff;
+    margin-left: 30px;
+    text-decoration: none;
+    position: relative;
+}
+
+.custom-nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: #ffd400;
+}
+
+/* ===============================
+ABOUT SECTION
+=================================*/
+
+.about {
+    background: #f5f5f5;
+}
+
+.about-img-wrapper {
+    position: relative;
+    width: 300px;
+}
+
+.about-img-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 0;
+}
+
+.about-img-wrapper img {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    filter: grayscale(100%);
+}
+
+.about h2 {
+    font-size: 60px;
+    font-weight: 900;
+    position: relative;
+    display: inline-block;
+}
+
+.about h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60%;
+    height: 5px;
+    background: #ffd400;
+}
+
+.zigzag {
+    width: 100px;
+    height: 10px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #000,
+        #000 5px,
+        transparent 5px,
+        transparent 10px
+    );
+    margin-bottom: 20px;
+}
+
+/* ===============================
+PORTFOLIO
+=================================*/
+
+.filter-menu {
+    margin-bottom: 40px;
+}
+
+.filter-menu span {
+    margin: 0 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.filter-menu span.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: #ffd400;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: 0.4s;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,212,0,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.4s;
+    text-align: center;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+.load-more {
+    display: block;
+    margin: 40px auto;
+    padding: 12px 30px;
+    border-radius: 50px;
+    background: #000;
+    color: #fff;
+    border: none;
+}
+
+.load-more:hover {
+    background: #ffd400;
+    color: #000;
+    transition: 0.3s;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="custom-nav">
+    <a href="#home" class="active">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#work">WORKS</a>
+    <a href="#">BLOG</a>
+    <a href="#">CONTACT</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="container-fluid">
+        <div class="row g-0">
+            <div class="col-md-6 hero-left">
+                <div class="logo">PROTOFILO.</div>
+                <div class="dots"></div>
+                <h5>MY NAME IS</h5>
+                <h1>ABDULRAHMAN</h1>
+                <button class="btn-yellow mt-4">I'M A UI DEVELOPER</button>
+            </div>
+            <div class="col-md-6 hero-right"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <div class="about-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=600&q=80">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="zigzag"></div>
+                <small>who am i</small>
+                <h2>HELLO</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="work">
+    <div class="container text-center">
+        <h2 class="fw-bold">MY WORK</h2>
+        <p>awesome projects</p>
+
+        <div class="filter-menu">
+            <span class="active" data-filter="all">ALL</span>
+            <span data-filter="graphic">GRAPHIC</span>
+            <span data-filter="web">WEBDESIGN</span>
+        </div>
+
+        <div class="row portfolio-container">
+            <div class="col-md-4 portfolio-item" data-category="graphic">
+                <img src="https://picsum.photos/400">
+                <div class="overlay">
+                    <h5>DESIGN PROJECT</h5>
+                    <small>Graphic</small>
+                </div>
+            </div>
+            <div class="col-md-4 portfolio-item" data-category="web">
+                <img src="https://picsum.photos/401">
+                <div class="overlay">
+                    <h5>DESIGN PROJECT</h5>
+                    <small>Web</small>
+                </div>
+            </div>
+        </div>
+
+        <button class="load-more">LOAD MORE</button>
+    </div>
+</section>
+
+<script>
+
+/* ===============================
+SMOOTH SCROLL
+=================================*/
+$(".custom-nav a").on("click", function(e){
+    e.preventDefault();
+    var target = $(this).attr("href");
+    $("html, body").animate({
+        scrollTop: $(target).offset().top - 70
+    }, 600);
+});
+
+/* ===============================
+ACTIVE NAV ON SCROLL
+=================================*/
+$(window).on("scroll", function(){
+    var scrollPos = $(document).scrollTop();
+    $(".custom-nav a").each(function(){
+        var currLink = $(this);
+        var refElement = $(currLink.attr("href"));
+        if(refElement.position().top <= scrollPos + 100 &&
+           refElement.position().top + refElement.height() > scrollPos + 100){
+            $(".custom-nav a").removeClass("active");
+            currLink.addClass("active");
+        }
+    });
+});
+
+/* ===============================
+FILTER PORTFOLIO
+=================================*/
+$(".filter-menu span").click(function(){
+    var filter = $(this).data("filter");
+    $(".filter-menu span").removeClass("active");
+    $(this).addClass("active");
+
+    if(filter == "all"){
+        $(".portfolio-item").show();
+    } else {
+        $(".portfolio-item").hide();
+        $(".portfolio-item[data-category='"+filter+"']").show();
+    }
+});
+
+/* ===============================
+LOAD MORE
+=================================*/
+$(".load-more").click(function(){
+    for(let i=0;i<3;i++){
+        $(".portfolio-container").append(`
+            <div class="col-md-4 portfolio-item" data-category="graphic">
+                <img src="https://picsum.photos/${Math.floor(Math.random()*1000)}">
+                <div class="overlay">
+                    <h5>NEW PROJECT</h5>
+                    <small>Graphic</small>
+                </div>
+            </div>
+        `);
+    }
+});
+
+</script>
+
+</body>
+</html>
