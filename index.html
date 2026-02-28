@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Protofilo Portfolio</title>
 
-<!-- Bootstrap CSS -->
+<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- jQuery -->
@@ -13,9 +13,9 @@
 
 <style>
 
-/* ===============================
-GLOBAL STYLE
-=================================*/
+/* =========================
+GLOBAL
+========================= */
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -26,31 +26,47 @@ section {
     padding: 100px 0;
 }
 
-.yellow {
-    color: #ffd400;
+.yellow { color: #ffd400; }
+
+.bg-yellow { background: #ffd400; }
+
+/* =========================
+NAVBAR
+========================= */
+
+.custom-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px 60px;
+    z-index: 999;
+    display: flex;
+    justify-content: flex-end;
+    background: rgba(0,0,0,0.85);
 }
 
-.bg-yellow {
+.custom-nav a {
+    color: #fff;
+    margin-left: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+.custom-nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
     background: #ffd400;
 }
 
-.btn-yellow {
-    background: #ffd400;
-    color: #000;
-    font-weight: bold;
-    padding: 12px 30px;
-    border: none;
-}
-
-.btn-yellow:hover {
-    background: #000;
-    color: #ffd400;
-    transition: 0.3s;
-}
-
-/* ===============================
-HERO SECTION
-=================================*/
+/* =========================
+HERO
+========================= */
 
 .hero {
     min-height: 100vh;
@@ -62,78 +78,59 @@ HERO SECTION
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 80px;
+    padding: 100px 80px;
     position: relative;
 }
 
 .logo {
     position: absolute;
     top: 30px;
-    left: 40px;
+    left: 60px;
     font-weight: bold;
     letter-spacing: 3px;
 }
 
+.hero-left h5 {
+    letter-spacing: 4px;
+}
+
 .hero-left h1 {
-    font-size: 70px;
+    font-size: 72px;
     font-weight: 900;
 }
 
-.hero-left h5 {
-    letter-spacing: 3px;
+.btn-yellow {
+    background: #ffd400;
+    color: #000;
+    font-weight: bold;
+    padding: 14px 32px;
+    border: none;
+}
+
+.btn-yellow:hover {
+    background: #fff;
+    color: #000;
 }
 
 .hero-right {
     background: url('https://images.unsplash.com/photo-1603415526960-f8f6bca3c4c3?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+    min-height: 100vh;
 }
 
 /* decorative dots */
 .dots {
     position: absolute;
-    top: 150px;
-    left: 40px;
+    top: 200px;
+    left: 60px;
     width: 120px;
     height: 120px;
-    background-image: radial-gradient(#555 1px, transparent 1px);
+    background-image: radial-gradient(#444 1px, transparent 1px);
     background-size: 10px 10px;
 }
 
-/* ===============================
-NAVBAR
-=================================*/
-
-.custom-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    padding: 20px 40px;
-    z-index: 1000;
-    display: flex;
-    justify-content: flex-end;
-    background: rgba(0,0,0,0.7);
-}
-
-.custom-nav a {
-    color: #fff;
-    margin-left: 30px;
-    text-decoration: none;
-    position: relative;
-}
-
-.custom-nav a.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%;
-    height: 2px;
-    background: #ffd400;
-}
-
-/* ===============================
-ABOUT SECTION
-=================================*/
+/* =========================
+ABOUT
+========================= */
 
 .about {
     background: #f5f5f5;
@@ -141,7 +138,8 @@ ABOUT SECTION
 
 .about-img-wrapper {
     position: relative;
-    width: 300px;
+    width: 320px;
+    margin: auto;
 }
 
 .about-img-wrapper::before {
@@ -156,8 +154,8 @@ ABOUT SECTION
 }
 
 .about-img-wrapper img {
-    position: relative;
     width: 100%;
+    position: relative;
     z-index: 1;
     filter: grayscale(100%);
 }
@@ -180,8 +178,8 @@ ABOUT SECTION
 }
 
 .zigzag {
-    width: 100px;
-    height: 10px;
+    width: 120px;
+    height: 8px;
     background: repeating-linear-gradient(
         -45deg,
         #000,
@@ -192,17 +190,14 @@ ABOUT SECTION
     margin-bottom: 20px;
 }
 
-/* ===============================
+/* =========================
 PORTFOLIO
-=================================*/
+========================= */
 
-.filter-menu {
-    margin-bottom: 40px;
-}
-   
 .filter-menu span {
     margin: 0 15px;
     cursor: pointer;
+    font-weight: 500;
     position: relative;
 }
 
@@ -210,7 +205,7 @@ PORTFOLIO
     content: "";
     position: absolute;
     left: 0;
-    bottom: -5px;
+    bottom: -6px;
     width: 100%;
     height: 2px;
     background: #ffd400;
@@ -224,23 +219,21 @@ PORTFOLIO
 
 .portfolio-item img {
     width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     filter: grayscale(100%);
-    transition: 0.4s;
 }
 
 .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255,212,0,0.9);
+    inset: 0;
+    background: rgba(255,212,0,0.92);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: 0.4s;
+    transition: 0.4s ease;
     text-align: center;
 }
 
@@ -251,7 +244,7 @@ PORTFOLIO
 .load-more {
     display: block;
     margin: 40px auto;
-    padding: 12px 30px;
+    padding: 14px 40px;
     border-radius: 50px;
     background: #000;
     color: #fff;
@@ -261,7 +254,19 @@ PORTFOLIO
 .load-more:hover {
     background: #ffd400;
     color: #000;
-    transition: 0.3s;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+    .hero-left {
+        padding: 80px 40px;
+    }
+    .hero-left h1 {
+        font-size: 48px;
+    }
 }
 
 </style>
@@ -273,139 +278,134 @@ PORTFOLIO
     <a href="#home" class="active">HOME</a>
     <a href="#about">ABOUT</a>
     <a href="#work">WORKS</a>
-    <a href="#">BLOG</a>
-    <a href="#">CONTACT</a>
 </nav>
 
 <!-- HERO -->
 <section id="home" class="hero">
-    <div class="container-fluid">
-        <div class="row g-0">
-            <div class="col-md-6 hero-left">
-                <div class="logo">PROTOFILO.</div>
-                <div class="dots"></div>
-                <h5>MY NAME IS</h5>
-                <h1>HAIKAL S</h1>
-                <button class="btn-yellow mt-4">I'M A UI DEVELOPER</button>
-            </div>
-            <div class="col-md-6 hero-right"></div>
-        </div>
-    </div>
+<div class="container-fluid">
+<div class="row g-0">
+<div class="col-md-6 hero-left">
+<div class="logo">PROTOFILO.</div>
+<div class="dots"></div>
+<h5>MY NAME IS</h5>
+<h1>ABDULRAHMAN</h1>
+<button class="btn-yellow mt-4">I'M A UI DEVELOPER</button>
+</div>
+<div class="col-md-6 hero-right"></div>
+</div>
+</div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="about">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center">
-                <div class="about-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=600&q=80">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="zigzag"></div>
-                <small>who am i</small>
-                <h2>HELLO</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<div class="row align-items-center">
+<div class="col-md-6 text-center mb-4">
+<div class="about-img-wrapper">
+<img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=600&q=80">
+</div>
+</div>
+<div class="col-md-6">
+<div class="zigzag"></div>
+<small>who am i</small>
+<h2>HELLO</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+</div>
+</div>
+</div>
 </section>
 
 <!-- PORTFOLIO -->
 <section id="work">
-    <div class="container text-center">
-        <h2 class="fw-bold">MY WORK</h2>
-        <p>awesome projects</p>
+<div class="container text-center">
+<h2 class="fw-bold">MY WORK</h2>
+<p>awesome projects</p>
 
-        <div class="filter-menu">
-            <span class="active" data-filter="all">ALL</span>
-            <span data-filter="graphic">GRAPHIC</span>
-            <span data-filter="web">WEBDESIGN</span>
-        </div>
+<div class="filter-menu mb-4">
+<span class="active" data-filter="all">ALL</span>
+<span data-filter="graphic">GRAPHIC</span>
+<span data-filter="web">WEBDESIGN</span>
+</div>
 
-        <div class="row portfolio-container">
-            <div class="col-md-4 portfolio-item" data-category="graphic">
-                <img src="https://picsum.photos/400">
-                <div class="overlay">
-                    <h5>DESIGN PROJECT</h5>
-                    <small>Graphic</small>
-                </div>
-            </div>
-            <div class="col-md-4 portfolio-item" data-category="web">
-                <img src="https://picsum.photos/401">
-                <div class="overlay">
-                    <h5>DESIGN PROJECT</h5>
-                    <small>Web</small>
-                </div>
-            </div>
-        </div>
+<div class="row portfolio-container">
+<!-- 9 items -->
+<script>
+for(let i=1;i<=9;i++){
+document.write(`
+<div class="col-md-4 portfolio-item" data-category="${i%2==0?'graphic':'web'}">
+<img src="https://picsum.photos/500?random=${i}">
+<div class="overlay">
+<h5>DESIGN PROJECT</h5>
+<small>${i%2==0?'Graphic':'Web'}</small>
+</div>
+</div>
+`);
+}
+</script>
+</div>
 
-        <button class="load-more">LOAD MORE</button>
-    </div>
+<button class="load-more">LOAD MORE</button>
+
+</div>
 </section>
 
 <script>
 
-/* ===============================
-SMOOTH SCROLL
-=================================*/
-$(".custom-nav a").on("click", function(e){
-    e.preventDefault();
-    var target = $(this).attr("href");
-    $("html, body").animate({
-        scrollTop: $(target).offset().top - 70
-    }, 600);
+/* SMOOTH SCROLL */
+$(".custom-nav a").click(function(e){
+e.preventDefault();
+let target = $(this.hash);
+if(target.length){
+$("html,body").animate({
+scrollTop: target.offset().top - 70
+},600);
+}
 });
 
-/* ===============================
-ACTIVE NAV ON SCROLL
-=================================*/
+/* ACTIVE NAV */
 $(window).on("scroll", function(){
-    var scrollPos = $(document).scrollTop();
-    $(".custom-nav a").each(function(){
-        var currLink = $(this);
-        var refElement = $(currLink.attr("href"));
-        if(refElement.position().top <= scrollPos + 100 &&
-           refElement.position().top + refElement.height() > scrollPos + 100){
-            $(".custom-nav a").removeClass("active");
-            currLink.addClass("active");
-        }
-    });
+let scrollPos = $(document).scrollTop();
+$(".custom-nav a").each(function(){
+let curr = $(this);
+let ref = $(curr.attr("href"));
+if(ref.length){
+if(ref.position().top <= scrollPos+100 &&
+ref.position().top + ref.height() > scrollPos+100){
+$(".custom-nav a").removeClass("active");
+curr.addClass("active");
+}
+}
+});
 });
 
-/* ===============================
-FILTER PORTFOLIO
-=================================*/
+/* FILTER */
 $(".filter-menu span").click(function(){
-    var filter = $(this).data("filter");
-    $(".filter-menu span").removeClass("active");
-    $(this).addClass("active");
+let filter = $(this).data("filter");
+$(".filter-menu span").removeClass("active");
+$(this).addClass("active");
 
-    if(filter == "all"){
-        $(".portfolio-item").show();
-    } else {
-        $(".portfolio-item").hide();
-        $(".portfolio-item[data-category='"+filter+"']").show();
-    }
+if(filter==="all"){
+$(".portfolio-item").fadeIn();
+}else{
+$(".portfolio-item").hide();
+$(".portfolio-item[data-category='"+filter+"']").fadeIn();
+}
 });
 
-/* ===============================
-LOAD MORE
-=================================*/
+/* LOAD MORE */
 $(".load-more").click(function(){
-    for(let i=0;i<3;i++){
-        $(".portfolio-container").append(`
-            <div class="col-md-4 portfolio-item" data-category="graphic">
-                <img src="https://picsum.photos/${Math.floor(Math.random()*1000)}">
-                <div class="overlay">
-                    <h5>NEW PROJECT</h5>
-                    <small>Graphic</small>
-                </div>
-            </div>
-        `);
-    }
+for(let i=0;i<3;i++){
+$(".portfolio-container").append(`
+<div class="col-md-4 portfolio-item" data-category="graphic">
+<img src="https://picsum.photos/500?random=${Math.random()}">
+<div class="overlay">
+<h5>NEW PROJECT</h5>
+<small>Graphic</small>
+</div>
+</div>
+`);
+}
 });
 
 </script>
