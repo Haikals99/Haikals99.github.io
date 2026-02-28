@@ -1,414 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Protofilo Portfolio</title>
-
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<style>
-
-/* =========================
-GLOBAL
-========================= */
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    scroll-behavior: smooth;
-}
-
-section {
-    padding: 100px 0;
-}
-
-.yellow { color: #ffd400; }
-
-.bg-yellow { background: #ffd400; }
-
-/* =========================
-NAVBAR
-========================= */
-
-.custom-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    padding: 20px 60px;
-    z-index: 999;
-    display: flex;
-    justify-content: flex-end;
-    background: rgba(0,0,0,0.85);
-}
-
-.custom-nav a {
-    color: #fff;
-    margin-left: 30px;
-    text-decoration: none;
-    font-weight: 500;
-    position: relative;
-}
-
-.custom-nav a.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 2px;
-    background: #ffd400;
-}
-
-/* =========================
-HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
-}
-
-.hero-left {
-    background: #000;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 100px 80px;
-    position: relative;
-}
-
-.logo {
-    position: absolute;
-    top: 30px;
-    left: 60px;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-.hero-left h5 {
-    letter-spacing: 4px;
-}
-
-.hero-left h1 {
-    font-size: 72px;
-    font-weight: 900;
-}
-
-.btn-yellow {
-    background: #ffd400;
-    color: #000;
-    font-weight: bold;
-    padding: 14px 32px;
-    border: none;
-}
-
-.btn-yellow:hover {
-    background: #fff;
-    color: #000;
-}
-
-.hero-right {
-    background: url('https://images.unsplash.com/photo-1603415526960-f8f6bca3c4c3?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
-    min-height: 100vh;
-}
-
-/* decorative dots */
-.dots {
-    position: absolute;
-    top: 200px;
-    left: 60px;
-    width: 120px;
-    height: 120px;
-    background-image: radial-gradient(#444 1px, transparent 1px);
-    background-size: 10px 10px;
-}
-
-/* =========================
-ABOUT
-========================= */
-
-.about {
-    background: #f5f5f5;
-}
-
-.about-img-wrapper {
-    position: relative;
-    width: 320px;
-    margin: auto;
-}
-
-.about-img-wrapper::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    z-index: 0;
-}
-
-.about-img-wrapper img {
-    width: 100%;
-    position: relative;
-    z-index: 1;
-    filter: grayscale(100%);
-}
-
-.about h2 {
-    font-size: 60px;
-    font-weight: 900;
-    position: relative;
-    display: inline-block;
-}
-
-.about h2::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    width: 60%;
-    height: 5px;
-    background: #ffd400;
-}
-
-.zigzag {
-    width: 120px;
-    height: 8px;
-    background: repeating-linear-gradient(
-        -45deg,
-        #000,
-        #000 5px,
-        transparent 5px,
-        transparent 10px
-    );
-    margin-bottom: 20px;
-}
-
-/* =========================
-PORTFOLIO
-========================= */
-
-.filter-menu span {
-    margin: 0 15px;
-    cursor: pointer;
-    font-weight: 500;
-    position: relative;
-}
-
-.filter-menu span.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 2px;
-    background: #ffd400;
-}
-
-.portfolio-item {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-
-.portfolio-item img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    filter: grayscale(100%);
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255,212,0,0.92);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: 0.4s ease;
-    text-align: center;
-}
-
-.portfolio-item:hover .overlay {
-    opacity: 1;
-}
-
-.load-more {
-    display: block;
-    margin: 40px auto;
-    padding: 14px 40px;
-    border-radius: 50px;
-    background: #000;
-    color: #fff;
-    border: none;
-}
-
-.load-more:hover {
-    background: #ffd400;
-    color: #000;
-}
-
-/* =========================
-RESPONSIVE
-========================= */
-
-@media(max-width:768px){
-    .hero-left {
-        padding: 80px 40px;
-    }
-    .hero-left h1 {
-        font-size: 48px;
-    }
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio 2025 · Cinematic Menu</title>
+  <!-- Bootstrap 5 grid & utilities -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fonts: Bebas Neue / Anton for headings, Poppins for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=Oswald:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 5 (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS animation library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- custom style -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* inline style for quick demo – normally in style.css */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0b0f1a; font-family: 'Poppins', sans-serif; color: #fff; }
+    /* gradient background overall */
+    .bg-gradient-dark { background: linear-gradient(145deg, #0b0f1a 0%, #0f172a 80%, #111827 100%); }
+    /* section styling */
+    section { padding: 5rem 0; position: relative; }
+    .hero-section { min-height: 100vh; display: flex; align-items: center; padding-top: 0; padding-bottom: 0; }
+    /* typography */
+    h1, h2, h3, .heading-font { font-family: 'Bebas Neue', 'Anton', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+    .text-accent { color: #b91c1c; }
+    .text-accent-light { color: #ef4444; }
+    .bg-accent { background-color: #b91c1c; }
+    .btn-accent { background: #b91c1c; border: none; color: white; }
+    .btn-accent:hover { background: #ef4444; }
+    /* menu game style */
+    .game-menu { list-style: none; padding: 0; margin-top: 2rem; }
+    .game-menu li { font-family: 'Oswald', sans-serif; font-size: 2.2rem; font-weight: 600; text-transform: uppercase; line-height: 1.3; color: #9ca3af; cursor: pointer; transition: 0.2s; letter-spacing: 2px; }
+    .game-menu li:hover { color: white; text-shadow: 0 0 10px #ef4444, 0 0 20px #b91c1c; transform: translateX(10px); }
+    /* profile pic semicircle */
+    .semicircle-bg { background: #b91c1c; border-radius: 50% / 100% 100% 0 0; width: 300px; height: 200px; margin: 0 auto; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; box-shadow: 0 20px 30px -10px rgba(185,28,28,0.5); }
+    .semicircle-bg img { width: 100%; height: auto; object-fit: cover; filter: contrast(1.1) brightness(0.9); }
+    /* about left image glow */
+    .glow-img { border-radius: 20px; box-shadow: 0 0 30px rgba(185,28,28,0.5); transition: 0.3s; }
+    /* skill icon boxes */
+    .skill-icon { background: #1e2538; padding: 1rem 1.5rem; border-radius: 16px; color: white; font-weight: 600; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; border: 1px solid #2d374b; }
+    .skill-icon:hover { background: #b91c1c; transform: scale(1.05); box-shadow: 0 0 20px #b91c1c; border-color: #ef4444; }
+    /* progress bar custom */
+    .progress { background-color: #1e2538; height: 10px; border-radius: 20px; }
+    .progress-bar { background: #b91c1c; border-radius: 20px; }
+    /* tab navigation */
+    .about-tabs { display: flex; gap: 2rem; margin-bottom: 2rem; border-bottom: 1px solid #2d374b; padding-bottom: 0.5rem; }
+    .about-tab { font-family: 'Oswald', sans-serif; font-size: 1.4rem; text-transform: uppercase; color: #9ca3af; cursor: pointer; padding: 0 0 0.5rem; transition: 0.2s; border-bottom: 3px solid transparent; }
+    .about-tab.active { color: white; border-bottom: 3px solid #b91c1c; }
+    .about-tab:hover { color: #ef4444; }
+    /* project card */
+    .project-card { border-radius: 20px; overflow: hidden; position: relative; aspect-ratio: 4/3; }
+    .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .project-card:hover img { transform: scale(1.1); }
+    .project-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; }
+    .project-card:hover .project-overlay { opacity: 1; }
+    .project-overlay h4 { color: white; font-size: 2rem; font-family: 'Bebas Neue'; text-shadow: 2px 2px 4px black; }
+    /* contact decor */
+    .decor-strip { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+    .decor-item { background: #1e2538; border-radius: 12px; padding: 10px 15px; display: flex; align-items: center; gap: 10px; color: #ef4444; border: 1px solid #b91c1c; }
+    .circle-profile { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 4px solid #b91c1c; box-shadow: 0 0 30px #b91c1c; }
+    /* footer */
+    footer a { color: #9ca3af; text-decoration: none; margin: 0 10px; }
+    footer a:hover { color: #ef4444; }
+  </style>
 </head>
+<body class="bg-gradient-dark">
 
-<body>
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section d-flex align-items-center">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- kolom kiri: foto semicircle -->
+        <div class="col-lg-6 text-center text-lg-end" data-aos="fade-right">
+          <div class="semicircle-bg mx-auto mx-lg-0 ms-lg-auto">
+            <!-- placeholder portrait male (dramatic lighting) -->
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop" alt="portrait" class="img-fluid">
+          </div>
+        </div>
+        <!-- kolom kanan: judul + menu -->
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="150">
+          <div class="d-flex align-items-baseline flex-wrap">
+            <h1 class="display-1 heading-font text-white" style="font-size: 7rem; line-height: 0.9;">PORTFOLIO</h1>
+            <span class="display-4 text-accent fw-bold ms-3">2025</span>
+          </div>
+          <p class="text-secondary-emphasis fs-4 text-uppercase" style="color: #9ca3af; letter-spacing: 6px;">content creator</p>
+          <!-- menu game vertikal -->
+          <ul class="game-menu">
+            <li data-target="#about">Start</li>
+            <li data-target="#projects">Options</li>
+            <li data-target="#contact">Exit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<nav class="custom-nav">
-    <a href="#home" class="active">HOME</a>
-    <a href="#about">ABOUT</a>
-    <a href="#work">WORKS</a>
-</nav>
+  <!-- ABOUT ME SECTION (dengan tab navigation) -->
+  <section id="about" class="pt-0">
+    <div class="container">
+      <!-- tab navigation kecil -->
+      <div class="about-tabs justify-content-center" data-aos="fade-down">
+        <span class="about-tab active" data-tab="profile">Profile</span>
+        <span class="about-tab" data-tab="project-tab">Project</span>
+        <span class="about-tab" data-tab="contactperson">Contact Person</span>
+      </div>
 
-<!-- HERO -->
-<section id="home" class="hero">
-<div class="container-fluid">
-<div class="row g-0">
-<div class="col-md-6 hero-left">
-<div class="logo">PROTOFILO.</div>
-<div class="dots"></div>
-<h5>MY NAME IS</h5>
-<h1>ABDULRAHMAN</h1>
-<button class="btn-yellow mt-4">I'M A UI DEVELOPER</button>
-</div>
-<div class="col-md-6 hero-right"></div>
-</div>
-</div>
-</section>
+      <div class="row g-5 align-items-center">
+        <!-- kiri: foto full body + glow -->
+        <div class="col-lg-6 text-center" data-aos="fade-right">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80&auto=format&fit=crop" alt="full body" class="img-fluid glow-img" style="border-radius: 30px; max-height: 600px; width: auto;">
+        </div>
+        <!-- kanan: konten dinamis berdasarkan tab -->
+        <div class="col-lg-6" data-aos="fade-left" id="tab-content-container">
+          <!-- konten default: profile (bio + software skills) -->
+          <div id="tab-profile" class="tab-pane active">
+            <h2 class="display-2 heading-font">ABOUT ME</h2>
+            <p class="mt-3" style="color: #d1d5db;">I'm a cinematic content creator & video editor with 5+ years of experience crafting visual stories. Obsessed with light, shadow, and bold transitions.</p>
+            <!-- software skills grid -->
+            <div class="d-flex flex-wrap gap-3 my-4">
+              <span class="skill-icon"><i class="fa-brands fa-photoshop me-2" style="color: #31a8ff;"></i> Photoshop</span>
+              <span class="skill-icon"><i class="fa-brands fa-premiere me-2" style="color: #9999ff;"></i> Premiere</span>
+              <span class="skill-icon"><i class="fa-solid fa-camera me-2" style="color: #dda0dd;"></i> Lightroom</span>
+              <span class="skill-icon"><i class="fa-solid fa-video me-2" style="color: #f97316;"></i> CapCut</span>
+              <span class="skill-icon"><i class="fa-solid fa-film me-2"></i> DaVinci</span>
+            </div>
+            <!-- info tambahan ditampilkan static (bisa juga via tab, tapi disini profile menampilkan sedikit info) -->
+            <div class="mt-4 text-muted">
+              <p><i class="fa-solid fa-graduation-cap text-accent me-2"></i> Bachelor of Film · NYFA</p>
+              <p><i class="fa-solid fa-briefcase text-accent me-2"></i> 5+ years freelance & agency</p>
+            </div>
+          </div>
 
-<!-- ABOUT -->
-<section id="about" class="about">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-md-6 text-center mb-4">
-<div class="about-img-wrapper">
-<img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=600&q=80">
-</div>
-</div>
-<div class="col-md-6">
-<div class="zigzag"></div>
-<small>who am i</small>
-<h2>HELLO</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-</div>
-</div>
-</div>
-</section>
+          <!-- konten tab project (Education, Experience, Language dengan progress bar) -->
+          <div id="tab-project-tab" class="tab-pane d-none">
+            <h2 class="display-2 heading-font">EDUCATION & SKILLS</h2>
+            <div class="mt-4">
+              <p class="fw-bold">Education <span class="float-end">Master of Cinema</span></p>
+              <div class="progress mb-3"><div class="progress-bar" style="width: 90%;">90%</div></div>
+              <p class="fw-bold">Experience <span class="float-end">Senior editor</span></p>
+              <div class="progress mb-3"><div class="progress-bar" style="width: 85%;">85%</div></div>
+              <p class="fw-bold">Language (English) </p>
+              <div class="progress mb-3"><div class="progress-bar" style="width: 95%;">95%</div></div>
+              <p class="fw-bold">Language (Indonesian)</p>
+              <div class="progress mb-3"><div class="progress-bar" style="width: 100%;">100%</div></div>
+              <p class="fw-bold">Motion Design </p>
+              <div class="progress mb-3"><div class="progress-bar" style="width: 75%;">75%</div></div>
+            </div>
+          </div>
 
-<!-- PORTFOLIO -->
-<section id="work">
-<div class="container text-center">
-<h2 class="fw-bold">MY WORK</h2>
-<p>awesome projects</p>
+          <!-- konten tab contact person (info kontak & sosmed) -->
+          <div id="tab-contactperson" class="tab-pane d-none">
+            <h2 class="display-2 heading-font">CONTACT ME</h2>
+            <p class="mt-3" style="color: #d1d5db;"><i class="fa-regular fa-envelope text-accent me-3"></i> hello@creator.work</p>
+            <p style="color: #d1d5db;"><i class="fa-solid fa-phone text-accent me-3"></i> +62 812 3456 7890</p>
+            <div class="d-flex gap-4 mt-4">
+              <a href="#" class="text-white fs-2"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="text-white fs-2"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="#" class="text-white fs-2"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="text-white fs-2"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="mt-4 p-3" style="background: #1e2538; border-radius: 20px;">
+              <p class="mb-0"><span class="text-accent">⏻</span> available for freelance · let's talk</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="filter-menu mb-4">
-<span class="active" data-filter="all">ALL</span>
-<span data-filter="graphic">GRAPHIC</span>
-<span data-filter="web">WEBDESIGN</span>
-</div>
+  <!-- PROJECT SECTION -->
+  <section id="projects" class="bg-transparent">
+    <div class="container">
+      <h2 class="display-1 heading-font text-center" data-aos="zoom-in">RECAP PROJECT 2025</h2>
+      <p class="text-center text-secondary mb-5" style="color: #9ca3af;">— cinematic edits & motion —</p>
+      <div class="row g-4">
+        <!-- card 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="flip-up">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1579547621869-0ddb5f237ef6?w=600&q=80" alt="project 1">
+            <div class="project-overlay"><h4>NIGHT RIDE</h4></div>
+          </div>
+        </div>
+        <!-- card 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="100">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?w=600&q=80" alt="project 2">
+            <div class="project-overlay"><h4>NEON DREAMS</h4></div>
+          </div>
+        </div>
+        <!-- card 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="200">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80" alt="project 3">
+            <div class="project-overlay"><h4>FUTURE EDIT</h4></div>
+          </div>
+        </div>
+        <!-- card 4 -->
+        <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="300">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80" alt="project 4">
+            <div class="project-overlay"><h4>COLOR GRADED</h4></div>
+          </div>
+        </div>
+        <!-- card 5 -->
+        <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="400">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80" alt="project 5">
+            <div class="project-overlay"><h4>GAME MENU</h4></div>
+          </div>
+        </div>
+        <!-- card 6 -->
+        <div class="col-md-6 col-lg-4" data-aos="flip-up" data-aos-delay="500">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80" alt="project 6">
+            <div class="project-overlay"><h4>MOTION REEL</h4></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="row portfolio-container">
-<!-- 9 items -->
-<script>
-for(let i=1;i<=9;i++){
-document.write(`
-<div class="col-md-4 portfolio-item" data-category="${i%2==0?'graphic':'web'}">
-<img src="https://picsum.photos/500?random=${i}">
-<div class="overlay">
-<h5>DESIGN PROJECT</h5>
-<small>${i%2==0?'Graphic':'Web'}</small>
-</div>
-</div>
-`);
-}
-</script>
-</div>
+  <!-- CONTACT & CLOSING SECTION -->
+  <section id="contact" class="pb-0">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <!-- kolom kiri: foto bulat, username, socials -->
+        <div class="col-lg-6 text-center text-lg-start" data-aos="fade-right">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="profile round" class="circle-profile mb-4">
+          <h3 class="heading-font fs-1">@creativemind</h3>
+          <div class="d-flex justify-content-center justify-content-lg-start gap-4 fs-2 my-3">
+            <a href="#"><i class="fa-brands fa-instagram text-white"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok text-white"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube text-white"></i></a>
+          </div>
+          <!-- dekoratif: film strip & tangan (menggunakan ikon & elemen) -->
+          <div class="decor-strip justify-content-center justify-content-lg-start">
+            <span class="decor-item"><i class="fa-solid fa-film"></i> 2025 reel</span>
+            <span class="decor-item"><i class="fa-solid fa-pen"></i> storyboard</span>
+            <span class="decor-item"><i class="fa-solid fa-clapperboard"></i> director's cut</span>
+          </div>
+        </div>
+        <!-- kolom kanan: THANK YOU big + ilustrasi kecil -->
+        <div class="col-lg-6 text-center text-lg-end" data-aos="fade-left">
+          <h2 class="display-1 heading-font" style="font-size: 6rem;">THANK YOU</h2>
+          <p class="display-4 text-accent">2025</p>
+          <!-- gambar portofolio kecil di bawah -->
+          <div class="d-flex gap-2 mt-4 justify-content-center justify-content-lg-end">
+            <img src="https://images.unsplash.com/photo-1574717024453-354056afc57b?w=100&h=100&q=80" class="rounded-3" style="width: 70px; height: 70px; object-fit: cover;">
+            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=100&h=100&q=80" class="rounded-3" style="width: 70px; height: 70px; object-fit: cover;">
+            <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?w=100&h=100&q=80" class="rounded-3" style="width: 70px; height: 70px; object-fit: cover;">
+          </div>
+          <!-- ilustrasi tangan memegang pena (pakai ikon) -->
+          <div class="mt-3 text-accent fs-1">
+            <i class="fa-solid fa-hand-holding"></i> <i class="fa-solid fa-pencil"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer sederhana -->
+    <footer class="text-center py-4 mt-5 border-top border-secondary">
+      <p class="mb-0 text-muted">© 2025 · cinematic portfolio · all footage fictional</p>
+    </footer>
+  </section>
 
-<button class="load-more">LOAD MORE</button>
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    // Inline JS for simplicity (bisa dipindah ke script.js)
+    $(document).ready(function(){
+      AOS.init({ duration: 800, once: true });
 
-</div>
-</section>
+      // SMOOTH SCROLL untuk menu game
+      $('.game-menu li').on('click', function(){
+        var target = $(this).data('target'); // #about, #projects, #contact
+        if(target){
+          $('html, body').animate({ scrollTop: $(target).offset().top }, 600);
+        }
+      });
 
-<script>
-
-/* SMOOTH SCROLL */
-$(".custom-nav a").click(function(e){
-e.preventDefault();
-let target = $(this.hash);
-if(target.length){
-$("html,body").animate({
-scrollTop: target.offset().top - 70
-},600);
-}
-});
-
-/* ACTIVE NAV */
-$(window).on("scroll", function(){
-let scrollPos = $(document).scrollTop();
-$(".custom-nav a").each(function(){
-let curr = $(this);
-let ref = $(curr.attr("href"));
-if(ref.length){
-if(ref.position().top <= scrollPos+100 &&
-ref.position().top + ref.height() > scrollPos+100){
-$(".custom-nav a").removeClass("active");
-curr.addClass("active");
-}
-}
-});
-});
-
-/* FILTER */
-$(".filter-menu span").click(function(){
-let filter = $(this).data("filter");
-$(".filter-menu span").removeClass("active");
-$(this).addClass("active");
-
-if(filter==="all"){
-$(".portfolio-item").fadeIn();
-}else{
-$(".portfolio-item").hide();
-$(".portfolio-item[data-category='"+filter+"']").fadeIn();
-}
-});
-
-/* LOAD MORE */
-$(".load-more").click(function(){
-for(let i=0;i<3;i++){
-$(".portfolio-container").append(`
-<div class="col-md-4 portfolio-item" data-category="graphic">
-<img src="https://picsum.photos/500?random=${Math.random()}">
-<div class="overlay">
-<h5>NEW PROJECT</h5>
-<small>Graphic</small>
-</div>
-</div>
-`);
-}
-});
-
-</script>
-
+      // TAB SWITCHING di about section
+      $('.about-tab').on('click', function(){
+        var tabId = $(this).data('tab'); // 'profile', 'project-tab', 'contactperson'
+        $('.about-tab').removeClass('active');
+        $(this).addClass('active');
+        
+        // sembunyikan semua tab pane
+        $('.tab-pane').addClass('d-none');
+        // tampilkan yang dipilih
+        $('#tab-'+tabId).removeClass('d-none');
+      });
+      // HOVER EFFECT tambahan (jQuery opsional) – sudah via CSS
+    });
+  </script>
+  <!-- fallback style untuk tab -->
+   
+  <style>
+    .tab-pane { transition: 0.2s; }
+    #tab-content-container { min-height: 400px; }
+  </style>
 </body>
 </html>
